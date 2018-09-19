@@ -11,8 +11,6 @@ import {loadMovies} from './actions/moviesActions';
 theMovieDb.common.api_key = process.env.REACT_APP_API_KEY;
 const store = configureStore();
 
-store.dispatch(loadMovies());
-
 ReactDOM.render(
   <Provider store={store}>
     <App/>
