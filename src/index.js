@@ -5,14 +5,17 @@ import {Provider} from 'react-redux';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import theMovieDb from "themoviedb-javascript-library";
+import {loadMovies} from './actions/moviesActions';
 
 
 theMovieDb.common.api_key = process.env.REACT_APP_API_KEY;
 const store = configureStore();
 
+store.dispatch(loadMovies());
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App/>
   </Provider>
 , document.getElementById('root'));
 registerServiceWorker();
