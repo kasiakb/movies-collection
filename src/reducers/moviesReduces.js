@@ -12,7 +12,10 @@ export default function movieReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        movies: action.movies,
+        movies: [
+          ...state.movies,
+          ...action.movies
+        ],
         page: action.pageNumber,
       }
     case types.FAILURE_MOVIES:

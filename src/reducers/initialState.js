@@ -1,6 +1,6 @@
 export default {
   movies: [],
-  page: [0],
+  page: 0,
   isLoading: false,
   isError: false,
   selectMovie: "",

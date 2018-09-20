@@ -23,23 +23,17 @@ export const failureMovies = error => {
   }
 }
 
-const pageNumber = state => {
-  return [...state.movies.page][0] += 1
-}
-
-export function loadMovies(){
+export function loadMovies(page){
   return function (dispatch, getState) {
-    const currentPage = pageNumber(getState())
-    dispatch(requestMovies(currentPage)) 
-    return theMovieDb.discover.getMovies({"page": {currentPage}},
+    let nextPage = page + 1
+    dispatch(requestMovies(nextPage))
+    return theMovieDb.discover.getMovies({page: nextPage},
       function(data) {
         data = JSON.parse(data)
         dispatch(receiveMovies(data.page, data.results))
-        console.log('page', data.page, 'movies', data.results)
       },
       function(error) {
         dispatch(failureMovies(error))
-        console.log(error)
       }
     )
   } 
