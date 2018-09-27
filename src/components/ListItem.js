@@ -1,21 +1,49 @@
 import React from 'react';
+import {Container,
+        ImageContainer,
+        ImagePosterSmall,
+        ImagePoster,
+        ImageBackdrop,
+        InfoContainer,
+        MainInfo,
+        MoreInfo,
+        OverviewnInfo} from '../components/Style/MovieCard'
+import styled from "styled-components";
+import { device } from '../components/Style/Devices';
 
-const ListItem = ({title, overview, poster, rating, date}) => {
+
+
+const shortOverwiew = overview => {
+  const charactersNunber = 215;
+  const shorterString=overview.replace(/^(.{215}[^\s]*).*/, "$1")
+
   return (
-    <div className="item movie card">
-      <div className="image_content">
-      </div>
-      <div className="movie info">
-        <div className="wrapper">
-          {title}
-          {rating}
-          {date}
-        </div>
-        <div className="overview">
-          {overview}
-        </div>
-      </div>
-  </div>
+    overview.length > charactersNunber ?
+    shorterString.slice(-1) !== "," ?  shorterString+"..." : shorterString.replace(/.$/,"...")
+    : overview
+  )
+}
+
+const ListItem = ({...movie}) => {
+  return (
+    <Container>
+      <ImageContainer>
+        <ImagePosterSmall alt={movie.title} src={"https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movie.poster_path}/>
+        <ImagePoster alt={movie.title} src={"https://image.tmdb.org/t/p/w370_and_h556_bestv2" + movie.poster_path}/>
+        <ImageBackdrop alt={movie.title} src={"https://image.tmdb.org/t/p/w500_and_h282_bestv2" + movie.backdrop_path}/>
+      </ImageContainer>
+      <InfoContainer>
+        <MainInfo>
+          {movie.title} <br />
+          Rating: {movie.vote_average} <br />
+          {movie.release_date} <br />
+        </MainInfo>
+        <OverviewnInfo>
+          {shortOverwiew(movie.overview)}
+        </OverviewnInfo>
+        <MoreInfo/>
+      </InfoContainer>
+  </Container>
   )
 }
 

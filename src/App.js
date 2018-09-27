@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import MoviesList from './containers/MoviesList'
+import {AppContainer} from '../src/components/Style/AppContainer'
 
 class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         <MoviesList/>
-      </div>
+      </AppContainer>
     );
   }
 }

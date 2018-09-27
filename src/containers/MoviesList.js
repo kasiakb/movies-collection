@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as moviesActions from '../actions/moviesActions';
 import List from '../components/List';
 import Waypoint from 'react-waypoint';
+import {ListContainer} from '../components/Style/ListContainer'
 
 
 class MoviesList extends Component {
@@ -21,13 +22,13 @@ class MoviesList extends Component {
         {isEmpty
           ? (this.props.isLoading ? <h2>Loading...</h2> : (this.props.isError ? <h2>Oops! Something went wrong.</h2> : null))
           : (this.props.isLoading
-            ? <div>
+            ? <ListContainer className="movies_wrapper">
                 <List
                   movies={this.props.movies}
                 />
                 <h2>Loading...</h2>
-              </div>
-            : <div>
+              </ListContainer>
+            : <ListContainer className="movies_wrapper">
                 <List
                   movies={this.props.movies}
                 />
@@ -35,7 +36,7 @@ class MoviesList extends Component {
                   onEnter={() => this.props.actions.loadMovies(this.props.page)}
                   threshold={5.0}
                 />
-              </div>
+              </ListContainer>
           )
         }
       </div>
