@@ -5,15 +5,19 @@ export const Container = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-  background: #f0f0f0;
+  background: #f2f2f2
   margin-bottom: 4%;
 
   @media ${device.mobileM} { 
     width: 100%;
   }
 
+  @media ${device.mobileM} { 
+    width: 90%;
+  }
+
   @media ${device.between1} { 
-    width: 30%;
+    width: 29%;
   }
 
   @media ${device.laptop} { 

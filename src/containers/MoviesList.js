@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import * as moviesActions from '../actions/moviesActions';
 import List from '../components/List';
 import Waypoint from 'react-waypoint';
-import {ListContainer} from '../components/Style/ListContainer'
+import {ListContainer} from '../components/Style/ListContainer';
+import {FakeContainer} from '../components/Style/MovieCard';
 
 
 class MoviesList extends Component {
