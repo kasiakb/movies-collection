@@ -1,5 +1,5 @@
 import * as types from '../actions/actionTypes';
-import theMovieDb from 'themoviedb-javascript-library'
+const api_key = process.env.REACT_APP_API_KEY;
 
 export const requestMovies = pageNumber => {
   return {
@@ -27,14 +27,14 @@ export function loadMovies(page){
   return function (dispatch, getState) {
     let nextPage = page + 1
     dispatch(requestMovies(nextPage))
-    return theMovieDb.discover.getMovies({page: nextPage},
-      function(data) {
-        data = JSON.parse(data)
-        dispatch(receiveMovies(data.page, data.results))
-      },
-      function(error) {
-        dispatch(failureMovies(error))
-      }
-    )
+    return fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${nextPage}`, {
+      method: 'GET',
+      mode: 'cors'
+    })
+    .then(response => response.json())
+    .then(json => {
+      dispatch(receiveMovies(json.page, json.results));
+    })
+    .catch(error => dispatch(dispatch(failureMovies(error))));
   } 
 }
