@@ -5,7 +5,7 @@ import {Container,
         ImagePoster,
         ImageBackdrop,
         InfoContainer,
-        MoreInfo,
+        MainInfo,
         OverviewnInfo
       } from '../components/Style/MovieCard';
 
@@ -29,13 +29,14 @@ const ListItem = ({...movie}) => {
         <ImageBackdrop alt={movie.title} src={"https://image.tmdb.org/t/p/w500_and_h282_bestv2" + movie.backdrop_path}/>
       </ImageContainer>
       <InfoContainer>
+        <MainInfo>
           {movie.title} <br />
           Rating: {movie.vote_average} <br />
           {movie.release_date} <br />
+        </MainInfo>
         <OverviewnInfo>
           {shortOverwiew(movie.overview)}
         </OverviewnInfo>
-        <MoreInfo/>
       </InfoContainer>
   </Container>
   )

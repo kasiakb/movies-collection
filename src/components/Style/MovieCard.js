@@ -53,7 +53,6 @@ export const ImageContainer = styled.div`
 `;
 
 export const ImagePosterSmall = styled.img`
-
   @media ${device.mobileM} {
     display: none;
   }
@@ -90,15 +89,22 @@ export const ImageBackdrop = styled.img`
 `;
 
 export const InfoContainer = styled.div`
-  margin: 4%;
-
   @media ${device.laptop} {
-    width: 60%
+    width: 100%
     display: flex;
     flex-direction: column;
     flex-wrap: no-wrap;
     justify-content: flex-start;
-    margin-top: 4%;
+    // margin-top: 4%;
+  }
+`;
+
+export const MainInfo = styled.div`
+  padding: 4%;
+
+  @media ${device.laptop} {
+    width: 90%;
+    height: auto;
   }
 `;
 
@@ -107,14 +113,7 @@ export const OverviewnInfo = styled.div`
 
   @media ${device.laptop} {
     margin-top: 8%;
-    display: block;
-  }
-`;
-
-export const MoreInfo = styled.div`
-  display: none;
-
-  @media ${device.laptop} {
+    padding: 4%;
     display: block;
   }
 `;
