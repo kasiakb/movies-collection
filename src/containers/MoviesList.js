@@ -5,8 +5,6 @@ import * as moviesActions from '../actions/moviesActions';
 import List from '../components/List';
 import Waypoint from 'react-waypoint';
 import {ListContainer} from '../components/Style/ListContainer';
-import {FakeContainer} from '../components/Style/MovieCard';
-
 
 class MoviesList extends Component {
 
@@ -17,7 +15,6 @@ class MoviesList extends Component {
   render() {
     
     const isEmpty = this.props.movies.length === 0
-    console.log('movies', this.props.movies)
     return (
       <div>
         {isEmpty

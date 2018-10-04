@@ -3,5 +3,4 @@ export default {
   page: 0,
   isLoading: false,
   isError: false,
-  selectMovie: "",
 }

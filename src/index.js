@@ -6,9 +6,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();
-const unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,5 +1,8 @@
 import * as types from '../actions/actionTypes';
+
 const api_key = process.env.REACT_APP_API_KEY;
+const urlBase = "https://api.themoviedb.org/3";
+const urlOptions = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page="
 
 export const requestMovies = pageNumber => {
   return {
@@ -24,10 +27,10 @@ export const failureMovies = error => {
 }
 
 export function loadMovies(page){
-  return function (dispatch, getState) {
+  return function (dispatch) {
     let nextPage = page + 1
     dispatch(requestMovies(nextPage))
-    return fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${nextPage}`, {
+    return fetch(`${urlBase}/discover/movie?api_key=${api_key}${urlOptions}${nextPage}`, {
       method: 'GET',
       mode: 'cors'
     })

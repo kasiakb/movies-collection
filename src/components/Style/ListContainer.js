@@ -23,6 +23,7 @@ export const ListContainer = styled.div`
   @media ${device.between1} {
     padding: 20% 5% 5% 5%;
   }
+
   @media ${device.laptop} {
     padding: 10% 5% 5% 5%;
   }
@@ -34,5 +35,4 @@ export const ListContainer = styled.div`
   @media ${device.desktop} {
     padding: 8% 15% 5% 15%;
   }
-  
 `;

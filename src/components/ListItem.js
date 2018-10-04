@@ -5,13 +5,9 @@ import {Container,
         ImagePoster,
         ImageBackdrop,
         InfoContainer,
-        MainInfo,
         MoreInfo,
-        OverviewnInfo} from '../components/Style/MovieCard'
-import styled from "styled-components";
-import { device } from '../components/Style/Devices';
-
-
+        OverviewnInfo
+      } from '../components/Style/MovieCard';
 
 const shortOverwiew = overview => {
   const charactersNunber = 215;
@@ -33,11 +29,9 @@ const ListItem = ({...movie}) => {
         <ImageBackdrop alt={movie.title} src={"https://image.tmdb.org/t/p/w500_and_h282_bestv2" + movie.backdrop_path}/>
       </ImageContainer>
       <InfoContainer>
-        <MainInfo>
           {movie.title} <br />
           Rating: {movie.vote_average} <br />
           {movie.release_date} <br />
-        </MainInfo>
         <OverviewnInfo>
           {shortOverwiew(movie.overview)}
         </OverviewnInfo>

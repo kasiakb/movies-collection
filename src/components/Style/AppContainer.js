@@ -6,5 +6,4 @@ export const AppContainer = styled.div`
   padding: 0;
   box-sizing: border-box;
   display: flex;
-  
 `;

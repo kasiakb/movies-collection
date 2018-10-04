@@ -73,7 +73,6 @@ export const ImagePoster = styled.img`
   @media ${device.mobileL} {
     display: none;
   }
-
 `;
 
 export const ImageBackdrop = styled.img`
@@ -88,7 +87,6 @@ export const ImageBackdrop = styled.img`
   @media ${device.between1} {
     display: none;
   }
-  
 `;
 
 export const InfoContainer = styled.div`
@@ -104,10 +102,6 @@ export const InfoContainer = styled.div`
   }
 `;
 
-export const MainInfo = styled.div`
-	
-`;
-
 export const OverviewnInfo = styled.div`
   display: none;
 
@@ -115,7 +109,6 @@ export const OverviewnInfo = styled.div`
     margin-top: 8%;
     display: block;
   }
-	
 `;
 
 export const MoreInfo = styled.div`
